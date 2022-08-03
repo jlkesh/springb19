@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    <bean class="uz.jl.spring_core.UserService"-->
+    <!--          id="userService"-->
+    <!--          scope="prototype"/>-->
+
+    <!--    <bean id="roleDao" class="uz.jl.spring_core.RoleDao"-->
+    <!--          init-method="init"-->
+    <!--          destroy-method="destroy"-->
+    <!--    >-->
+    <!--        <property name="dbName" value="postgres"/>-->
+    <!--        <property name="dbUsername" value="post"/>-->
+    <!--        <property name="dbPassword" value="123"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="roleDao2" class="uz.jl.spring_core.RoleDao"-->
+    <!--          init-method="init"-->
+    <!--          destroy-method="destroy"-->
+    <!--    >-->
+    <!--        <property name="dbName" value="postgres"/>-->
+    <!--        <property name="dbUsername" value="post"/>-->
+    <!--        <property name="dbPassword" value="123"/>-->
+    <!--    </bean>-->
+
+    <bean id="roleDao2" class="uz.jl.spring_core.RoleDao"
+          init-method="init"
+          destroy-method="destroy"
+          factory-method="factory">
+    </bean>
+
+    <bean id="userDao" class="uz.jl.spring_core.UserDao" lazy-init="true"/>
+
+<!--    <bean id="userService2" class="uz.jl.spring_core.UserService">-->
+<!--        <property name="roleDao" ref="roleDao2"/>-->
+<!--        <property name="userDao" ref="userDao"/>-->
+<!--    </bean>-->
+
+
+    <!--    <bean id="roleDao" class="uz.jl.spring_core.RoleDao">-->
+    <!--        <constructor-arg name="dbName" value="postgres" />-->
+    <!--        <constructor-arg name="dbUsername" value="admin" />-->
+    <!--        <constructor-arg name="dbPassword" value="123" />-->
+    <!--    </bean>-->
+
+</beans>
