@@ -1,17 +1,14 @@
 package uz.jl.spring_core;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import uz.jl.spring_core.config.SpringIoCConfig;
+import uz.jl.spring_core.properties.DbProperties;
 
 public class App {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationConfigurer.xml");
-        RoleDao bean = context.getBean(RoleDao.class);
-        System.out.println("bean = " + bean);
-        context.close();
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringIoCConfig.class);
+        DbProperties dbProperties = context.getBean(DbProperties.class);
+        System.out.println("dbProperties = " + dbProperties);
     }
 }
