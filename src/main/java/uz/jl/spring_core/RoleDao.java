@@ -1,13 +1,19 @@
 package uz.jl.spring_core;
 
 import lombok.ToString;
+import org.springframework.stereotype.Component;
 
-@ToString
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+@ToString(doNotUseGetters = true)
+@Component
 public class RoleDao {
     private String dbName;
     private String dbUsername;
     private String dbPassword;
 
+    @PostConstruct
     public void init() {
         System.out.println("Init method called");
     }
@@ -24,7 +30,7 @@ public class RoleDao {
     }
 
     public static RoleDao factory() {
-        return new RoleDao("notion","admin","123");
+        return new RoleDao("notion", "admin", "123");
     }
 
     public void setDbName(String dbName) {
@@ -42,6 +48,7 @@ public class RoleDao {
         this.dbPassword = dbPassword;
     }
 
+    @PreDestroy
     public void destroy() {
         System.out.println("Destroy method called");
     }

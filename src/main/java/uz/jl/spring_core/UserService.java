@@ -1,15 +1,42 @@
 package uz.jl.spring_core;
 
+
+import lombok.ToString;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+@Component
 public class UserService {
 
-    private UserDao userDao;
-    private RoleDao roleDao;
+//    @Autowired
+//    private UserDao userDao;
+//
+//    @Autowired
+//    private RoleDao roleDao;
 
-    public void setUserDao(UserDao userDao) {
+
+
+    private final UserDao userDao;
+
+
+    private final RoleDao roleDao;
+
+
+    public UserService(
+            @Lazy UserDao userDao,
+            @Lazy RoleDao roleDao) {
         this.userDao = userDao;
-    }
-
-    public void setRoleDao(RoleDao roleDao) {
         this.roleDao = roleDao;
     }
+
+//    @Autowired
+//    public void setUserDao(UserDao userDao) {
+//        this.userDao = userDao;
+//    }
+//
+//    @Autowired
+//    public void setRoleDao(RoleDao roleDao) {
+//        this.roleDao = roleDao;
+//    }
 }
