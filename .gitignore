@@ -161,4 +161,5 @@ gradle-app.setting
 /.idea/misc.xml
 /.idea/artifacts/spring_core_Web_exploded.xml
 /.idea/vcs.xml
-/web/WEB-INF/web.xml
+/.idea/git_toolbox_prj.xml
+/.idea/.gitignore
